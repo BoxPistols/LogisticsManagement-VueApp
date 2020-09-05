@@ -1,21 +1,22 @@
 <template>
-    <div id="app">
-        <div id="nav">
-            <router-link to="/" class="menu">Home</router-link>
-            <router-link to="/new" class="menu">New</router-link>
-            <router-link to="/edit" class="menu">Edit</router-link>
-            <router-link to="/about" class="menu">About</router-link>
-            <router-link to="/develop" class="menu">Develop</router-link>
-        </div>
-        <router-view />
+  <div id="app">
+    <div id="nav">
+      <router-link to="/" class="menu">Home</router-link>
+      <router-link to="/new" class="menu">New</router-link>
+      <router-link to="/edit" class="menu">Edit</router-link>
+      <router-link to="/about" class="menu">About</router-link>
+      <router-link to="/develop" class="menu">Develop</router-link>
     </div>
+    <router-view />
+  </div>
 </template>
 
 <style lang="stylus">
 body
     background: aliceblue
+    font-family Andale Mono, sans-serif
 #app
-    font-family Avenir, Helvetica, Arial, sans-serif
+    // font-family Avenir, Helvetica, Arial, sans-serif
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
     text-align center

@@ -1,43 +1,51 @@
-<template lang="html">
-    <div>
-        <h2>List</h2>
-        <div class="result__lay">
-            <div class="result__org">
-                <ul v-for="memo in newest" :key="memo.id" class="result__mol">
-                    <li>{{ memo.id }}: {{ memo.memoBody }}</li>
-                </ul>
-            </div>
-        </div>
+<template>
+  <div>
+    <h2>List</h2>
+    <div class="result__lay">
+      <div class="result__org">
+        <ul v-for="memo in newest" :key="memo.id" class="result__mol">
+          <li>
+            <router-link to="{name: 'Edit', params:{id: memo.id}}">{{ memo.id }}:
+            {{ memo.body }}
+            </router-link>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-
 export default {
-    name: 'home',
-    data() {
-        return {
-        }
+  name: 'home',
+  data() {
+    return {}
+  },
+  computed: {
+    newest() {
+      return this.$store.state.memos.slice().reverse()
     },
-    computed: {
-        newest() {
-            return this.$store.state.memos.slice().reverse()
-        },
-    },
-    components: {
-    },
+  },
+  components: {},
 }
 </script>
 
-<style scoped lang="stylus">
-@import '../assets/style/component.styl'
+<style lang="stylus" scoped>
+@import "../assets/style/component"
+</style>
 
-.result
-    &__org
-        max-width 800px
-        margin auto
-    &__mol
-        li
-            border-bottom 1px solid lightgray
-            font-size 1.5em
+<style lang="scss" scoped>
+.result {
+  &__org {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  &__mol {
+    li {
+      border-bottom: 1px solid lightgray;
+      font-size: 1.5em;
+    }
+  }
+}
 </style>

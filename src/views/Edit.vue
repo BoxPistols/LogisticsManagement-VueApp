@@ -1,26 +1,23 @@
 <template>
-<div>
+  <div class="edit">
     <h2>Edit</h2>
-    <textarea v-model="memo.memoBody" name="memo" class="memo"></textarea>
-    <br />
+    <textarea v-model="memo.body" name="memo" id="" cols="30" rows="10"></textarea>
     <button>保存</button>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-
-        }
+  data() {
+    return {}
+  },
+  computed: {
+    memo() {
+      const id = this.$route.state.memos.params['id']
+      return this.$store.memos.find((memo) => memo.this.$route.params['id'] == id)
     },
-    computed: {
-        memo: function () {
-            const id = this.$route.params['id']
-            return this.$store.state.momes.find((memo) => memo.id == id)
-        },
-    },
+  },
 }
 </script>
 
-<style lang="scss" scoped="scoped"></style>
+<style lang="scss" scoped></style>
